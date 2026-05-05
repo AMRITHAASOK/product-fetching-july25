@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { addToWishlist } from '../redux/slices/wishlistSlice'
+import { addTocart } from '../redux/slices/cartSlice'
 
 function ViewProducts() {
+
+    const dispatch = useDispatch()
+
     //1 get product id from the url
     const {id} = useParams()
     console.log(id); //params = {id: '13'}
@@ -41,8 +47,9 @@ function ViewProducts() {
                 <p>{products.
 description}</p>
                         <Row>
-                            <Col><Button>Add To Cart</Button></Col>
-                             <Col><Button>Add To Cart</Button></Col>
+                            <Col><Button onClick={()=>dispatch(addToWishlist(products))}>Add To Wishlist</Button></Col>
+
+                            <Col><Button onClick={()=>dispatch(addTocart(products))}>Add To Cart</Button></Col>
                         </Row>
                 </Col>
             </Row>

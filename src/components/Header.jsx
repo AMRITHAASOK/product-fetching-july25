@@ -3,6 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
+
 function Header() {
   return (
     <div>
@@ -15,6 +17,16 @@ function Header() {
           <Nav className="mx-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/products">All Products</Nav.Link>
+          </Nav>
+           <Nav className="ms-auto">
+            <Link to={"/wishlist"}>
+             Wishlist
+            </Link>
+            <Link to={"/cart"}>
+           Cart
+            </Link>
+           
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
